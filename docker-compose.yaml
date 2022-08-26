@@ -312,9 +312,8 @@ services:
       - work-logs:/opt/airflow/logs
       - work-logs:/opt/airflow/plugins
     command: [ "dask-worker", "tcp://dask_scheduler:8786"]
-    # For Docker swarm you can specify multiple workers, this is ignored by `docker-compose up`
     deploy:
-      replicas: 4
+      replicas: 4 # depends on your cpu cores
       resources:
         limits:
           #cpus: '0.50'
